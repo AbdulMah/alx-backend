@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
-''' Simple helper function '''
-from typing import Tuple
+"""
+This is a simple helper function to find
+start and end pagination parameters.
+"""
 
 
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    ''' Def index range '''
-    index = page * page_size - page_size
-    index_1 = index + page_size
-    return (index, index_1)
+def index_range(page: int, page_size: int) -> tuple:
+    """
+    Return the start and end index of the range
+    of items to be displayed on the page.
+
+    Args:
+        page (int): The page number.
+        page_size (int): The number of items per page.
+
+    Returns:
+        tuple: The start and end index of the range
+        of items to be displayed on the page.
+    """
+    end = page * page_size
+    start = end - page_size
+    return start, end
